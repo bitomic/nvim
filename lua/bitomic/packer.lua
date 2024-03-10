@@ -13,18 +13,13 @@ return require('packer').startup(function(use)
   }
 
   use {
-	  'rose-pine/neovim',
-	  as = 'rose-pine'
-  }
-
-  use {
-	  'navarasu/onedark.nvim',
-	  as = 'onedark'
-  }
-
-  use {
-	  'catppuccin/nvim',
-	  as = 'catppuccin'
+	  'folke/tokyonight.nvim',
+	  as = 'tokyonight',
+		config = function ()
+			require( 'tokyonight' ).setup( {
+				transparent = true
+			} )
+		end
   }
 
   use {
@@ -79,6 +74,20 @@ return require('packer').startup(function(use)
 	  requires = {
 		  'SmiteshP/nvim-navic',
 		  'nvim-tree/nvim-web-devicons'
+	  }
+  }
+
+  use {
+	  'Pocco81/auto-save.nvim',
+	  config = function ()
+		  require('auto-save').setup()
+	  end
+  }
+
+  use {
+	  'epwalsh/obsidian.nvim',
+	  requires = {
+		  'nvim-lua/plenary.nvim'
 	  }
   }
 end)
